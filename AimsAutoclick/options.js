@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 'use strict';
+/*
 window.onload = function(){
     chrome.storage.local.get(['FullApplList'], function(data) {
 
@@ -12,7 +13,7 @@ window.onload = function(){
             
     });
 }
-
+*/
 
 save.onclick = function (){
     chrome.storage.local.set({FullApplList: document.getElementById("fullApplIDs").value.trim().split(/\s+|\n+/g)}, function() {

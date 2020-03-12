@@ -37,9 +37,13 @@ window.onload = function() {
         chrome.storage.local.set({AloadStage: 6}, function() {}); //loadStage++ 
         document.querySelectorAll("a[href='/pls/PROD/hwsalist_cityu.P_DispFull_ADMO']")[0].click(); 
       }
-      
-      
-      
+      /*
+	  if(data.AloadStage==5){
+        chrome.storage.local.set({AloadStage: 6}, function() {}); //loadStage++ 
+        var links = document.getElementsByTagName("a");
+		for(i in links){if(links[i].innerHTML == "1188A"){links[i].click();}} //click into program page
+      }
+      */
   });
 }
 

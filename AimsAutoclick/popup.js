@@ -20,39 +20,16 @@ window.onload = function() {
 }
 
 'use strict';
-/*
-let changeColor = document.getElementById('changeColor');
-chrome.storage.local.get('color', function(data) {
-  changeColor.style.backgroundColor = data.color;
-  changeColor.setAttribute('value', data.color);
-});
+
 
 
 changeColor.onclick = function(element) {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-
-     // since only one tab should be active and in the current window at once
-     // the return variable should only have one entry
-     var activeTab = tabs[0];
-     var activeTabId = activeTab.id; // or do whatever you need
-        console.log(activeTab.url);
-        chrome.tabs.update(activeTabId, {url: "https://banweb.cityu.edu.hk/pls/PROD/twbkwbis.P_GenMenu?name=amenu_cityu.P_CityuAdmMnu"});
-        
-
-                
-                chrome.tabs.query({status: "complete"}, function(tabs) {
-                chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"});
-                                                                                      });
-                                                                        })
-                                                               
-        
-        
-});
- 
-
+                chrome.tabs.sendMessage(tabs[0].id, {Cbtn: true});
+                });
+    
   };
-*/
+
 
 applID.onchange = function applSelected() {
     chrome.storage.local.get(['popup_idHightlighted'], function(data) {

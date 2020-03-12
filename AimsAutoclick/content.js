@@ -50,12 +50,31 @@ window.onload = function() {
 //Receiving appl id from popup
 chrome.runtime.onMessage.addListener(
       function(request, sender, sendResponse) {
-          
-            chrome.storage.local.set({AloadStage: 0, ApplicantIDSelected: request.IDselected}, function() {   //loadStage = 0 
+            
+          if(request.IDselected){   //AimsAutoClicks takes you to summary page!!
+               chrome.storage.local.set({AloadStage: 0, ApplicantIDSelected: request.IDselected}, function() {   //loadStage = 0 
                 
                 console.log(request.IDselected);
                 location.reload();
-            }); 
-            
+               });  
+            }
+          
+          if(request.Cbtn){ //Auto fill Program conditions
+              console.log("Cbtn clicked!");
+          }
+});
 
-      });
+//Change program page's conditions on pressing z-->x-->c
+var keyspressed="";
+window.onkeypress = function(e){
+    if(e.keyCode=="122" || e.keyCode=="120" || e.keyCode=="99"){
+    keyspressed += e.keyCode;
+        if(keyspressed == "12212099"){
+        keyspressed=="";
+        document.getElementsByName("A2decision")[0].checked = "true"; //A2=CO, A1=O
+        document.getElementsByName("reply_duedate")[0].value = "03042020"; //reply deadline DDMMYYYY
+        document.getElementsByName("entry_yr")[0].options[2].selected = 'selected'; //0:FY, 1:ASI, 2:ASII, 3:ASI/II, 4: Not Applicable
+        document.body.style.backgroundColor = "lightgrey";
+        }
+    }
+}

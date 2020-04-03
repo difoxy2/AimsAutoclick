@@ -60,7 +60,13 @@ chrome.runtime.onMessage.addListener(
             }
           
           if(request.Cbtn){ //Auto fill Program conditions
-              console.log("Cbtn clicked!");
+              chrome.storage.local.set({AloadStage: 0, ApplicantIDSelected: request.Cbtn}, function() {   //loadStage = 0 
+                console.log("Cbtn clicked!");
+                console.log(request.Cbtn);
+                location.reload();
+               });  
+              
+              
           }
 });
 

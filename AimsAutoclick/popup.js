@@ -14,7 +14,7 @@ window.onload = function() {
       
       
       //highlighting Last clicked item#
-      document.getElementById("applID").options[data.popup_idHightlighted].setAttribute("style", "background-color: aliceblue;");
+      document.getElementById("applID").options[data.popup_idHightlighted].setAttribute("style", "background-color: #bbbbff;");
   });
 
 }
@@ -24,8 +24,9 @@ window.onload = function() {
 
 
 changeColor.onclick = function(element) {
+    var temp = document.getElementById("Cinput").value;
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-                chrome.tabs.sendMessage(tabs[0].id, {Cbtn: true});
+                chrome.tabs.sendMessage(tabs[0].id, {Cbtn: temp});
                 });
     
   };

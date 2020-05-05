@@ -41,7 +41,7 @@ window.onload = function() {
 	  if(data.AloadStage==5){
         chrome.storage.local.set({AloadStage: 6}, function() {}); //loadStage++ 
         var links = document.getElementsByTagName("a");
-		for(i in links){if(links[i].innerHTML == "1188A"){links[i].click();}} //click into program page
+		for(i in links){if(links[i].innerHTML == "1276A"){links[i].click();}} //click into program page
       }
       */
   });
@@ -75,11 +75,12 @@ var keyspressed="";
 window.onkeypress = function(e){
     if(e.keyCode=="122" || e.keyCode=="120" || e.keyCode=="99"){
     keyspressed += e.keyCode;
-        if(keyspressed == "12212099"){
+        if(keyspressed.includes("12212099")){
         keyspressed=="";
-        document.getElementsByName("A2decision")[0].checked = "true"; //A2=CO, A1=O
-        document.getElementsByName("reply_duedate")[0].value = "03042020"; //reply deadline DDMMYYYY
-        document.getElementsByName("entry_yr")[0].options[2].selected = 'selected'; //0:FY, 1:ASI, 2:ASII, 3:ASI/II, 4: Not Applicable
+        document.getElementsByName("A2decision")[0].checked = false; //A2=CO, A1=O
+        document.getElementsByName("offer_condition")[0].value = ""
+        document.getElementsByName("reply_duedate")[0].value = ""; //reply deadline DDMMYYYY
+        document.getElementsByName("entry_yr")[0].options[4].selected = 'selected'; //0:FY, 1:ASI, 2:ASII, 3:ASI/II, 4: Not Applicable
         document.body.style.backgroundColor = "lightgrey";
         }
     }
